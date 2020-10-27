@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-
 import './App.css';
-
 import Dialog from  './Dialog.js';
+
+//ICONS
 
 
 function App() {
@@ -15,17 +15,16 @@ function App() {
     const url = `http://economia.awesomeapi.com.br/json/${moedas}-BRL`
     await fetch(url)
         .then(response => response.json())
-        .then(data => {
-          console.log(data);  
-          const dados = {
-            venda: data[0].bid,
-            compra: data[0].ask,
-            codigo: data[0].code,
-            maxima: data[0].high,
-            minima: data[0].low,
-            nome: data[0].name,
-            variacao: data[0].pctChange,
-        }
+        .then(data => {  
+            const dados = {
+              venda: data[0].bid,
+              compra: data[0].ask,
+              codigo: data[0].code,
+              maxima: data[0].high,
+              minima: data[0].low,
+              nome: data[0].name,
+              variacao: data[0].pctChange,
+             }
         setDados(dados)
         setExibirModal(true)
         })
@@ -34,30 +33,28 @@ function App() {
         });
   }
   return (
-    <>
-    <div className="App">
+    <>  
+      <div className="App"> 
 
-      <h1>Cotação - React</h1>
-      <div className="Menu">
-        <label for="select">Escolha uma Moeda: </label>
-          <select name="select" onChange={e => setMoedas(e.target.value)}>
-            <option value="USD">Dólar Comercial</option> 
-            <option value="USDT">Dólar Turismo</option>
-            <option value="CAD">Dólar Canadense</option>
-            <option value="AUD">Dólar Australiano</option>
-        </select>
+        <h1>Cotação - React</h1>
+        <div className="Menu">
+          <label for="select">Escolha uma Moeda: </label>
+            <select name="select" onChange={e => setMoedas(e.target.value)}>
+              <option value="USD">Dólar Comercial</option> 
+              <option value="EUR">Euro</option>
+              <option value="GBP">Libra Esterlina</option>
+              <option value="ARS">Peso Argentino</option>
+              <option value="JPY">Iene Japonês</option>
+              <option value="CHF">Franco Suíço</option>
+              <option value="CNY">Yuan Chinês</option>
+          </select>
+        </div>
+          <br></br>
+          <br></br>
+          <button onClick={obtemCotacao}>Obter Cotação</button>
       </div>
-        <br></br>
-        <br></br>
-        <button onClick={obtemCotacao}>Obter Cotação</button>
-    </div> {
-      
-      exibirModal && 
-    
-    <Dialog dados={dados} modal={exibirModal}  />
-
-}</>
-  );
-}
+    { exibirModal &&  <Dialog dados={dados} modal={exibirModal} />}
+  </>
+  )}
 
 export default App;

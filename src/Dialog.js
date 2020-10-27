@@ -25,18 +25,14 @@ export default function TransitionsModal(dados, exibirModal) {
 /*
   const handleOpen = () => {
     setOpen(true);
-    console.log('dados aqui:')
-    console.log(dados)
   };*/
 
   const handleClose = () => {
     setOpen(false);
-    //exibirModal(false)
   };
 
   return (
     <div>
-     
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -51,15 +47,14 @@ export default function TransitionsModal(dados, exibirModal) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-      <h2 id="transition-modal-title">{dados.dados.nome}</h2>
-            <p>Código:    <strong>{dados.dados.codigo}</strong></p>
-            <p>Máxima:   <strong>{dados.dados.maxima}</strong></p>
-            <p>Miníma:   <strong>{dados.dados.minima}</strong></p>
-            <p>Valor na Compra:   <strong>{dados.dados.compra}</strong> </p>
-            <p>Valor na Venda   <strong>{dados.dados.venda}</strong> </p>
-            <p>Variação:   <strong>{dados.dados.variacao}</strong> </p>
-            <small>https:..//github.com/phfernandes14/cotacao-react</small>
-            
+           <h2 id="transition-modal-title">{dados.dados.nome}</h2>
+            <p>Código: <strong>{dados.dados.codigo}</strong></p>
+            <p>Máxima: <strong>{dados.dados.maxima}</strong></p>
+            <p>Miníma: <strong>{dados.dados.minima}</strong></p>
+            <p>Valor na Compra: <strong>{dados.dados.compra}</strong></p>
+            <p>Valor na Venda: <strong>{dados.dados.venda}</strong></p>
+            <p>Variação: <strong>{dados.dados.variacao}</strong></p>
+            <small><strong>https://github.com/phfernandes14/cotacao-react</strong></small>
           </div>
         </Fade>
       </Modal>
