@@ -20,27 +20,23 @@ const useStyles = makeStyles((theme) => ({
 
 export default function TransitionsModal(dados, exibirModal) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(exibirModal);
 
-
+/*
   const handleOpen = () => {
     setOpen(true);
     console.log('dados aqui:')
     console.log(dados)
- 
-
-    
-  };
+  };*/
 
   const handleClose = () => {
     setOpen(false);
+    //exibirModal(false)
   };
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        react-spring
-      </button>
+     
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

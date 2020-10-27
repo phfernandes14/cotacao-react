@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 import './App.css';
+
 import Dialog from  './Dialog.js';
+
 
 function App() {
 
@@ -15,8 +17,6 @@ function App() {
         .then(response => response.json())
         .then(data => {
           console.log(data);  
-
-           
           const dados = {
             venda: data[0].bid,
             compra: data[0].ask,
@@ -25,12 +25,9 @@ function App() {
             minima: data[0].low,
             nome: data[0].name,
             variacao: data[0].pctChange,
-
         }
         setDados(dados)
-      
         setExibirModal(true)
-
         })
         .catch(function (error) {
           console.error('Houve um problema ao efetuar a requisição: ' + error.message);
@@ -39,6 +36,7 @@ function App() {
   return (
     <>
     <div className="App">
+
       <h1>Cotação - React</h1>
       <div className="Menu">
         <label for="select">Escolha uma Moeda: </label>
@@ -56,10 +54,7 @@ function App() {
       
       exibirModal && 
     
-    <Dialog dados={dados}  />
-
-
-
+    <Dialog dados={dados} modal={exibirModal}  />
 
 }</>
   );
