@@ -3,7 +3,7 @@ import './App.css';
 import Dialog from  './Dialog.js';
 
 //ICONS
-
+import GitHub from '@material-ui/icons/GitHub';
 
 function App() {
 
@@ -52,6 +52,11 @@ function App() {
           <br></br>
           <br></br>
           <button onClick={obtemCotacao}>Obter Cotação</button>
+          <br></br>
+          <br></br>
+          
+          <GitHub /><label><small>github.com/phfernandes14/cotacao-react</small></label>
+        
       </div>
     { exibirModal &&  <Dialog dados={dados} modal={exibirModal} />}
   </>
