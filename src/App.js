@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Dialog from  './Dialog.js';
+import Modal from  './components/Modal';
 
 //ICONS
 import GitHub from '@material-ui/icons/GitHub';
@@ -35,7 +35,6 @@ function App() {
   return (
     <>  
       <div className="App"> 
-
         <h1>Cotação - React</h1>
         <div className="Menu">
           <label for="select">Escolha uma Moeda: </label>
@@ -58,7 +57,7 @@ function App() {
           <GitHub /><label><small>github.com/phfernandes14/cotacao-react</small></label>
         
       </div>
-    { exibirModal &&  <Dialog dados={dados} modal={exibirModal} />}
+    { exibirModal &&  <Modal dados={dados} modal={exibirModal} />}
   </>
   )}
 
